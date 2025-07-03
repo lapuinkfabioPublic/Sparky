@@ -54,5 +54,17 @@ namespace SparkNUnitTest
 
         }
 
+        [Test]
+        [TestCase(10,ExpectedResult = false)]
+        [TestCase(11, ExpectedResult = true)]
+        public bool IsOddCheck_InputEventNumber_ReturnOdd(int a)
+        {
+            Calculator calc = new Calculator();
+            return  calc.IsOddNumber(a);
+        }
+
+
+
+
     }
 }
