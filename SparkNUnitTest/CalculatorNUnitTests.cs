@@ -27,5 +27,32 @@ namespace SparkNUnitTest
             ClassicAssert.AreEqual(30, result);
         }
 
+
+        [Test]
+        public void IsOddCheck_InputEventNumber_ReturnFalse()
+        {
+            Calculator calc = new Calculator();
+
+            bool isOdd = calc.IsOddNumber(10);
+            ClassicAssert.That(isOdd,  Is.EqualTo (false));
+            ClassicAssert.IsTrue(isOdd);
+
+        }
+
+        [Test]
+        [TestCase(11)]
+        [TestCase(12)]
+        [TestCase(13)]
+        public void IsOddCheck_InputEventNumber_ReturnTrue(int a)
+        {
+            Calculator calc = new Calculator();
+
+            bool isOdd = calc.IsOddNumber(a);
+            ClassicAssert.That(isOdd, Is.EqualTo(true));
+            ClassicAssert.IsTrue(isOdd);
+
+
+        }
+
     }
 }
