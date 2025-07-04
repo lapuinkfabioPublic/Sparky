@@ -112,7 +112,7 @@ namespace SparkNUnitTest
         [Test]
         public void CustomerType_CreateCustomerWithMoreThan100Order_ReturnBasicCustomer()
         {
-            customer.OrderTotal = 10;
+            customer.OrderTotal = 110;
             var result = customer.GetCustomerDetails();
             Assert.That(result, Is.TypeOf<PlaninumCustomer>());
         }
