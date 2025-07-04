@@ -12,11 +12,18 @@ namespace SparkNUnitTest
     [TestFixture]
     public class CustomerNUnitTest
     {
+        private Customer customer;
+        [SetUp]
+        public void Setup()
+        {
+            customer = new Customer();
+        }
+
         [Test]
         public void CombinaName_InputFirstANdLastName_ReturnFullName() {
 
             //Arrange
-            var customer = new Customer();
+            
             //Act
             string fullName = customer.GreetAndCombinaName("Ben", "Spark");
 
@@ -33,7 +40,6 @@ namespace SparkNUnitTest
         [Test]
         public void GreetMessage_NotGreete_ReturnNull() {
             //arrange
-            var customer = new Customer();
 
             //act
 
