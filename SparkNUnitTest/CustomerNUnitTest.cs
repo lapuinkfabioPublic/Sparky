@@ -48,5 +48,33 @@ namespace SparkNUnitTest
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(customer.GreetMessage);
 
         }
+
+        [Test]
+        public void OddRager_InputMinandMaxRange_ReturnValidOddNumberRage() {
+            Calculator calc = new();
+            List<int> expectedOddRage = new List<int>() { 5, 7, 9 };
+            //act
+            List<int> result = calc.GetOddRange(5, 10);
+
+            //Assert
+            Assert.That(result, Is.EquivalentTo(expectedOddRage));
+            Assert.Equals(expectedOddRage, result);
+            Assert.That(result, Does.Contain(7));
+            Assert.That(result, Is.Not.Empty);
+
+            Assert.That(result.Count, Has.No.Member(6));
+            Assert.That(result, Is.Ordered.Descending);
+            Assert.That(result, Is.Unique);
+
+        }
+
+        [Test]
+        public void OddRager_InputMinandMaxRange_ReturnDiscountInRage()
+        {
+            int result = customer.Discount;
+            Assert.That(result, Is.InRange(10, 25));
+
+        }
+
+        }
     }
-}
