@@ -97,8 +97,8 @@ namespace SparkNUnitTest
             Assert.That(() => customer.GreetAndCombinaName("", "spark"), Throws.ArgumentException.With.Message.EqualTo("Empty First Name"));
 
 
-            
-
+            Assert.Throws<ArgumentException>(() => customer.GreetAndCombinaName(string.Empty, "Spark"));
+            Assert.That(() => customer.GreetAndCombinaName("", "spark"), Throws.ArgumentException.With.Message.EqualTo("Empty First Name"));
 
 
         }
