@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using A2 = Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SparkNUnitTest
 {
@@ -45,7 +46,7 @@ namespace SparkNUnitTest
 
             //assert
 
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(customer.GreetMessage);
+            A2.Assert.IsNull(customer.GreetMessage);
 
         }
 
@@ -56,15 +57,20 @@ namespace SparkNUnitTest
             //act
             List<int> result = calc.GetOddRange(5, 10);
 
-            //Assert
-            Assert.That(result, Is.EquivalentTo(expectedOddRage));
-            Assert.Equals(expectedOddRage, result);
-            Assert.That(result, Does.Contain(7));
-            Assert.That(result, Is.Not.Empty);
 
-            Assert.That(result.Count, Has.No.Member(6));
-            Assert.That(result, Is.Ordered.Descending);
-            Assert.That(result, Is.Unique);
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EquivalentTo(expectedOddRage));
+                Assert.Equals(expectedOddRage, result);
+                Assert.That(result, Does.Contain(7));
+                Assert.That(result, Is.Not.Empty);
+
+                Assert.That(result.Count, Has.No.Member(6));
+                Assert.That(result, Is.Ordered.Descending);
+                Assert.That(result, Is.Unique);
+            });
+            //Assert
+
 
         }
 
@@ -76,5 +82,25 @@ namespace SparkNUnitTest
 
         }
 
+        [Test]
+        public void GreetMessag_GreetWithoutLastName_ReturnsNotNull() {
+            customer.GreetAndCombinaName("ben", "");
+            
+            A2.Assert.IsNotNull(customer.GreetMessage);
+            A2.Assert.IsFalse(string.IsNullOrEmpty(customer.GreetMessage));
         }
+        [Test]
+        public void GreetMessag_GreetWithoutLastName_ThrowsException()
+        {
+            var exceptionDetails = Assert.Throws<ArgumentException>(() => customer.GreetAndCombinaName(string.Empty, "Spark"));
+            Assert.Equals("Empty First Name",exceptionDetails.Message);
+            Assert.That(() => customer.GreetAndCombinaName("", "spark"), Throws.ArgumentException.With.Message.EqualTo("Empty First Name"));
+
+
+            
+
+
+
+        }
+    }
     }
