@@ -24,7 +24,7 @@ namespace SparkNUnitTest
 
             Assert.That(fullName, Is.EqualTo("Hello, Ben Spark"));
             Assert.Equals(fullName, "Hello, Ben Spark");
-            Assert.That(fullName , Does.ContainValue(","));
+            Assert.That(fullName , Does.ContainValue("ben Spark").IgnoreCase);
             Assert.That(fullName, Does.StartWith("Hello"));
             Assert.That(fullName, Does.EndWith("Spark"));
         }
