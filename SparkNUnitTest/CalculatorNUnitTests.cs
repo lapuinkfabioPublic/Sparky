@@ -64,6 +64,15 @@ namespace SparkNUnitTest
         }
 
 
+        [Test]
+        [TestCase(5.4, 10.5)]
+        [TestCase(5.43, 10.53)]
+        [TestCase(5.49, 10.49)]
+        public void IsOddCheck_InputTwo_GetCoorrectAddition(double a, double b)
+        {
+            double result = new Calculator().AddNumbersDouble(a, b);
+            ClassicAssert.AreEqual(15.9, result);
+        }
 
 
     }
