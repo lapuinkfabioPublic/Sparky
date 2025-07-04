@@ -30,5 +30,17 @@ namespace SparkNUnitTest
             Assert.That(fullName, Does.Match("Hello, [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
         }
 
+        [Test]
+        public void GreetMessage_NotGreete_ReturnNull() {
+            //arrange
+            var customer = new Customer();
+
+            //act
+
+            //assert
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(customer.GreetMessage);
+
+        }
     }
 }
