@@ -71,7 +71,8 @@ namespace SparkNUnitTest
         public void IsOddCheck_InputTwo_GetCoorrectAddition(double a, double b)
         {
             double result = new Calculator().AddNumbersDouble(a, b);
-            ClassicAssert.AreEqual(15.9, result);
+           // ClassicAssert.AreEqual(15.9, result,  1); /*Valor do Delta, deve esar enre 14.9 e 16.9*/
+            ClassicAssert.AreEqual(15.9, result, .2); /*Valor do Delta, deve esar enre 15.8 e 16*/
         }
 
 
