@@ -16,7 +16,7 @@ namespace SparkNUnitTest
         [SetUp]
         [Test]
         public void Setup() {
-            bankAccount = new(new LogBook());
+            bankAccount = new(new LogFakker()); //Pass a Faker 
         }
 
         [Test]

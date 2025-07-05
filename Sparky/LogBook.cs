@@ -21,4 +21,15 @@ namespace Sparky
             Console.WriteLine(message);
         }
     }
+
+
+    public class LogFakker : ILogBook
+    {
+        public LogFakker()
+        { }
+
+        public void Message(string message)
+        {
+        }
+    }
 }
