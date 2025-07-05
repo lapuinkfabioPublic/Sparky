@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using Sparky;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,28 @@ namespace SparkNUnitTest
     [TestFixture]
     public class BankAccountNUnitTests
     {
-        private BankAccount bankAccount;
         [SetUp]
         [Test]
         public void Setup() {
-            bankAccount = new(new LogFakker()); //Pass a Faker 
         }
 
         [Test]
-        public void BankDeposit_Add100_ReturnTrue() {
+        public void BankDepositLogFakker_Add100_ReturnTrue() {
+            BankAccount bankAccount = new(new LogFakker()); //Pass a Faker 
+
+            var result = bankAccount.Deposit(100);
+            A2.Assert.IsTrue(result);
+            Assert.That(bankAccount.GetBalance, Is.EqualTo(100));
+
+        }
+
+        [Test]
+        public void BankDeposit_Add100_ReturnTrue()
+        {
+            var logMock = new Mock<ILogBook>();
+            logMock.Setup(x => x.Message("")); 
+            
+            BankAccount bankAccount = new(logMock.Object); //Pass a Faker 
             var result = bankAccount.Deposit(100);
             A2.Assert.IsTrue(result);
             Assert.That(bankAccount.GetBalance, Is.EqualTo(100));
