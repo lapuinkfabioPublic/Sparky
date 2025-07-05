@@ -16,6 +16,8 @@ namespace Sparky
 
         string MessageWithReturnStr(string message);
 
+        bool LogWithOutPutResult(string str, out string outputStr);
+
     }
 
     public class LogBook : ILogBook
@@ -36,6 +38,12 @@ namespace Sparky
 
         public bool LogToDB(string message)
         {
+            return true;
+        }
+
+        public bool LogWithOutPutResult(string str, out string outputStr)
+        {
+            outputStr = "Hello " + str;
             return true;
         }
 
@@ -73,6 +81,11 @@ namespace Sparky
         public string MessageWithReturnStr(string message)
         {
             return message.ToLower();
+        }
+        public bool LogWithOutPutResult(string str, out string outputStr)
+        {
+            outputStr = "Hello " + str;
+            return true;
         }
     }
 }

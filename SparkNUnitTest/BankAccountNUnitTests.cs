@@ -74,15 +74,16 @@ namespace SparkNUnitTest
         }
 
         [Test]
-        public void BankLogDummy_LogMockString_ReturnTrue()
+        public void BankLogDummy_LogMockStringOutputStr_ReturnTrue()
         {
             var logMock = new Mock<ILogBook>();
-            string desireOutput = "hello";
-            logMock.Setup(u => u.MessageWithReturnStr(It.IsAny<string>())).Returns((string str ) => str.ToLower());
-
-            logMock.Setup(u => u.LogBalanceAfterWithdrawal(It.Is<int>(x => x > 0))).Returns(true);
-
-            Assert.That(logMock.Object.MessageWithReturnStr("HELLo"), Is.EqualTo(desireOutput));
+            string desireOutput = "";
+            logMock.Setup(u => u.LogWithOutPutResult(It.IsAny<string>(), out desireOutput)).Returns(true);
+            string result = "";
+            A2.Assert.IsTrue(logMock.Object.LogWithOutPutResult("Ben",out result));
+            Assert.That(result,  Is.EqualTo(desireOutput));
         }
+
+
     }
 }
