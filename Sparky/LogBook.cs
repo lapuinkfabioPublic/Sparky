@@ -14,6 +14,8 @@ namespace Sparky
 
         bool LogBalanceAfterWithdrawal(int balanAfterWithdrawal);
 
+        string MessageWithReturnStr(string message);
+
     }
 
     public class LogBook : ILogBook
@@ -40,6 +42,12 @@ namespace Sparky
         public void Message(string message)
         {
         }
+
+        public string MessageWithReturnStr(string message)
+        {
+            Console.WriteLine(message);
+            return message.ToLower();
+        }
     }
 
 
@@ -60,6 +68,11 @@ namespace Sparky
 
         public void Message(string message)
         {
+        }
+
+        public string MessageWithReturnStr(string message)
+        {
+            return message.ToLower();
         }
     }
 }

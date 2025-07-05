@@ -72,5 +72,17 @@ namespace SparkNUnitTest
             var result = bankAccount.WithDraw(withdraw);
             A2.Assert.IsFalse(result);
         }
+
+        [Test]
+        public void BankLogDummy_LogMockString_ReturnTrue()
+        {
+            var logMock = new Mock<ILogBook>();
+            string desireOutput = "hello";
+            logMock.Setup(u => u.MessageWithReturnStr(It.IsAny<string>())).Returns((string str ) => str.ToLower());
+
+            logMock.Setup(u => u.LogBalanceAfterWithdrawal(It.Is<int>(x => x > 0))).Returns(true);
+
+            Assert.That(logMock.Object.MessageWithReturnStr("HELLo"), Is.EqualTo(desireOutput));
+        }
     }
 }
