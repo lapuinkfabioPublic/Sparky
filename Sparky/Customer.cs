@@ -12,6 +12,12 @@ namespace Sparky
 
         public int OrderTotal { get; set; }
         public string GreetMessage { get; set; }
+
+        public bool IsPlatinum { get; set; }
+        public Customer()
+        {
+            IsPlatinum = false;
+        }
         public string GreetAndCombinaName(string firstName, string LastName) {
 
             if (string.IsNullOrWhiteSpace(firstName))
