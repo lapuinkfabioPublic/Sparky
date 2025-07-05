@@ -84,6 +84,18 @@ namespace SparkNUnitTest
             Assert.That(result,  Is.EqualTo(desireOutput));
         }
 
+        [Test]
+        public void BankLogDummy_LogRegChecker_ReturnTrue()
+        {
+            var logMock = new Mock<ILogBook>();
+            Customer customer = new();
+            Customer customerNotUsed = new();
 
+         
+            logMock.Setup(u => u.LogWithRefObj(ref customer)).Returns(true);
+            A2.Assert.IsFalse(logMock.Object.LogWithRefObj(ref customerNotUsed));
+            A2.Assert.IsTrue(logMock.Object.LogWithRefObj(ref customer));
+
+        }
     }
 }
