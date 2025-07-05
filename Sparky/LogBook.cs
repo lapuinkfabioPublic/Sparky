@@ -9,6 +9,7 @@ namespace Sparky
     public interface ILogBook
     {
         void Message(string message);
+
     }
 
     public class LogBook : ILogBook
