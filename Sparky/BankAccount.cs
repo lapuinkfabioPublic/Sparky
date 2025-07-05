@@ -32,11 +32,12 @@ namespace Sparky
         public bool WithDraw(int amount)
         {
             if (amount <= balance)
-            { 
+            {
+                _logBook.LogToDB("Withdrawal Amount: " + amount.ToString());
                 balance -= amount;
                 return true;
             }
-            return false;
+            return _logBook.LogBalanceAfterWithdrawal(balance-amount);
         
         }
 

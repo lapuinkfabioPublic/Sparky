@@ -41,6 +41,21 @@ namespace SparkNUnitTest
 
         }
 
+        [Test]
+        [TestCase(200,100)]
+        [TestCase(200,150)]
+        public void BankWithdraw_Withdraw100With200Balance_ReturnsTrue(int balance, int withdraw) {
+            var logMock = new Mock<ILogBook>();
+            logMock.Setup(u => u.LogToDB(It.IsAny<string>())).Returns(true);
+            logMock.Setup(u => u.LogBalanceAfterWithdrawal(It.Is<int>(x=>x>0))).Returns(true);
+
+            BankAccount bankAccount = new BankAccount(logMock.Object);
+            bankAccount.Deposit(balance);
+
+            var result = bankAccount.WithDraw(withdraw);
+            A2.Assert.IsTrue(result);
+        }
+
 
     }
 }
