@@ -137,5 +137,22 @@ namespace SparkNUnitTest
 
 
         }
+
+        [Test]
+        public void BankLogDummy_VerifyExample() {
+            var logMock = new Mock<ILogBook>();
+            BankAccount bankAccount = new(logMock.Object);
+            bankAccount.Deposit(100);
+            Assert.That(bankAccount.GetBalance, Is.EqualTo(100));
+
+            //verification
+
+            logMock.Verify(u => u.Message(It.IsAny<string>()), Times.Exactly(2));
+            logMock.Verify(u => u.Message("Test"), Times.AtLeastOnce);
+            logMock.VerifySet(u => u.LogSeverity = 101, Times.Once);
+            logMock.VerifyGet(u => u.LogSeverity , Times.Once);
+
+
+        }
     }
 }
