@@ -125,11 +125,14 @@ namespace SparkNUnitTest
             //calbacks
 
             int counter = 5;
-            logMock.Setup(u => u.LogToDB(It.IsAny<string>())).Returns(true)
+            logMock.Setup(u => u.LogToDB(It.IsAny<string>()))
+                .Callback(() => counter++)
+                .Returns(true)
                 .Callback( () => counter++);
 
             logMock.Object.LogToDB("Ben");
-            Assert.That(counter, Is.EqualTo(6));
+            logMock.Object.LogToDB("Ben");
+            Assert.That(counter, Is.EqualTo(9));
 
 
 
