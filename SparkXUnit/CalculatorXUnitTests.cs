@@ -33,7 +33,6 @@ namespace SparkNUnitTest
             Calculator calc = new Calculator();
 
             bool isOdd = calc.IsOddNumber(10);
-            //Assert.That(isOdd,  Is.EqualTo (false));
             Assert.True(isOdd);
 
         }
@@ -47,7 +46,6 @@ namespace SparkNUnitTest
             Calculator calc = new Calculator();
 
             bool isOdd = calc.IsOddNumber(a);
-            //Assert.That(isOdd, Is.EqualTo(true));
             Assert.True(isOdd);
 
 
@@ -71,7 +69,6 @@ namespace SparkNUnitTest
         public void IsOddCheck_InputTwo_GetCoorrectAddition(double a, double b)
         {
             double result = new Calculator().AddNumbersDouble(a, b);
-           // ClassicAssert.AreEqual(15.9, result,  1); /*Valor do Delta, deve esar enre 14.9 e 16.9*/
             Assert.Equal(15.9, result, .2); /*Valor do Delta, deve esar enre 15.8 e 16*/
         }
 

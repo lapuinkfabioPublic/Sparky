@@ -33,8 +33,8 @@
 //        }
 
 //        [Fact]
-//        [TestCase(200,100)]
-//        [TestCase(200,150)]
+//        [Theory(200,100)]
+//        [Theory(200,150)]
 //        public void BankWithdraw_Withdraw100With200Balance_ReturnsTrue(int balance, int withdraw) {
 //            var logMock = new Mock<ILogBook>();
 //            logMock.TestInitialize(u => u.LogToDB(It.IsAny<string>())).Returns(true);
@@ -48,7 +48,7 @@
 //        }
 
 //        [Fact]
-//        [TestCase(200,300)]
+//        [Theory(200,300)]
 //        public void BankWithdraw_Withdraw100With200Balance_ReturnsFalse(int balance, int withdraw)
 //        {
 //            var logMock = new Mock<ILogBook>();
