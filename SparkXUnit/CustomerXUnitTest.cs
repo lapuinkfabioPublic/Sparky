@@ -57,8 +57,7 @@ namespace SparkNUnitTest
         {
             int result = customer.Discount;
             Assert.InRange(result, 10, 25);
-
-        }
+                   }
 
         [Fact]
         public void GreetMessag_GreetWithoutLastName_ReturnsNotNull()
