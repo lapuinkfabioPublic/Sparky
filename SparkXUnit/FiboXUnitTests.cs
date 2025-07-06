@@ -11,7 +11,7 @@
 //    [TestFixture]
 //    public class FiboXUnitTests
 //    {
-//        //[Test]
+//        //[Fact]
 //        public void FiboChecker_Input1_ReturnsFiboSeries()
 //        {
 //            List<int> expectedRange = new() { 0 };
@@ -24,7 +24,7 @@
 
 //        }
 
-//        [Test]
+//        [Fact]
 //        public void FiboChecker_Input6_ReturnsFiboSeries()
 //        {
 //            List<int> expectedRange = new() { 0 , 1 , 1, 2, 3, 5 };

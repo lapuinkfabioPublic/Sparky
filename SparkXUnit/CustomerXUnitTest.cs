@@ -20,7 +20,7 @@
 //            customer = new Customer();
 //        }
 
-//        [Test]
+//        [Fact]
 //        public void CombinaName_InputFirstANdLastName_ReturnFullName() {
 
 //            //Arrange
@@ -38,7 +38,7 @@
 //            Assert.That(fullName, Does.Match("Hello, [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
 //        }
 
-//        [Test]
+//        [Fact]
 //        public void GreetMessage_NotGreete_ReturnNull() {
 //            //arrange
 
@@ -50,7 +50,7 @@
 
 //        }
 
-//        [Test]
+//        [Fact]
 //        public void OddRager_InputMinandMaxRange_ReturnValidOddNumberRage() {
 //            Calculator calc = new();
 //            List<int> expectedOddRage = new List<int>() { 5, 7, 9 };
@@ -74,7 +74,7 @@
 
 //        }
 
-//        [Test]
+//        [Fact]
 //        public void OddRager_InputMinandMaxRange_ReturnDiscountInRage()
 //        {
 //            int result = customer.Discount;
@@ -82,14 +82,14 @@
 
 //        }
 
-//        [Test]
+//        [Fact]
 //        public void GreetMessag_GreetWithoutLastName_ReturnsNotNull() {
 //            customer.GreetAndCombinaName("ben", "");
             
 //            A2.Assert.IsNotNull(customer.GreetMessage);
 //            A2.Assert.IsFalse(string.IsNullOrEmpty(customer.GreetMessage));
 //        }
-//        [Test]
+//        [Fact]
 //        public void GreetMessag_GreetWithoutLastName_ThrowsException()
 //        {
 //            var exceptionDetails = Assert.Throws<ArgumentException>(() => customer.GreetAndCombinaName(string.Empty, "Spark"));
@@ -103,13 +103,13 @@
 
 //        }
 
-//        [Test]
+//        [Fact]
 //        public void CustomerType_CreateCustomerWithLessThan100Order_ReturnBasicCustomer() {
 //            customer.OrderTotal = 10;
 //            var result = customer.GetCustomerDetails();
 //            Assert.That(result, Is.TypeOf<BasicCustomer>());
 //        }
-//        [Test]
+//        [Fact]
 //        public void CustomerType_CreateCustomerWithMoreThan100Order_ReturnBasicCustomer()
 //        {
 //            customer.OrderTotal = 110;

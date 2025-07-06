@@ -12,7 +12,7 @@
 //    [TestFixture]
 //    public class ProductXUnitTests
 //    {
-//        [Test]
+//        [Fact]
 //        public void GetProductPrice_PlatiniumCustomer_ReturnPriceWith20iscont()
 //        { 
 //            Product product = new Product() { Price = 50 };
@@ -20,7 +20,7 @@
 //            Assert.That(result, Is.EqualTo(40));
         
 //        }
-//        [Test]
+//        [Fact]
 //        public void GetProductPriceMOQAbuse_PlatiniumCustomer_ReturnPriceWith20iscont()
 //        {
 //            var customer = new Mock<ICustomer>();
