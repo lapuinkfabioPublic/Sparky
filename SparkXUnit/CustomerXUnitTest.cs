@@ -1,122 +1,122 @@
-﻿//using NUnit.Framework;
-//using Sparky;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using A2 = Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using Sparky;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using A2 = Microsoft.VisualStudio.TestTools.UnitTesting;
 
-//namespace SparkNUnitTest
-//{
+namespace SparkNUnitTest
+{
 
-//    [TestFixture]
-//    public class CustomerXUnitTest
-//    {
-//        private Customer customer;
-//        [SetUp]
-//        public void Setup()
-//        {
-//            customer = new Customer();
-//        }
+    [TestFixture]
+    public class CustomerXUnitTest
+    {
+        private Customer customer;
+        [SetUp]
+        public void Setup()
+        {
+            customer = new Customer();
+        }
 
-//        [Fact]
-//        public void CombinaName_InputFirstANdLastName_ReturnFullName() {
+        [Test]
+        public void CombinaName_InputFirstANdLastName_ReturnFullName() {
 
-//            //Arrange
+            //Arrange
             
-//            //Act
-//            string fullName = customer.GreetAndCombinaName("Ben", "Spark");
+            //Act
+            string fullName = customer.GreetAndCombinaName("Ben", "Spark");
 
-//            //Assert
+            //Assert
 
-//            Assert.That(fullName, Is.EqualTo("Hello, Ben Spark"));
-//            Assert.Equals(fullName, "Hello, Ben Spark");
-//            Assert.That(fullName , Does.ContainValue("ben Spark").IgnoreCase);
-//            Assert.That(fullName, Does.StartWith("Hello"));
-//            Assert.That(fullName, Does.EndWith("Spark"));
-//            Assert.That(fullName, Does.Match("Hello, [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
-//        }
+            Assert.That(fullName, Is.EqualTo("Hello, Ben Spark"));
+            Assert.Equals(fullName, "Hello, Ben Spark");
+            Assert.That(fullName , Does.ContainValue("ben Spark").IgnoreCase);
+            Assert.That(fullName, Does.StartWith("Hello"));
+            Assert.That(fullName, Does.EndWith("Spark"));
+            Assert.That(fullName, Does.Match("Hello, [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
+        }
 
-//        [Fact]
-//        public void GreetMessage_NotGreete_ReturnNull() {
-//            //arrange
+        [Test]
+        public void GreetMessage_NotGreete_ReturnNull() {
+            //arrange
 
-//            //act
+            //act
 
-//            //assert
+            //assert
 
-//            A2.Assert.IsNull(customer.GreetMessage);
+            A2.Assert.IsNull(customer.GreetMessage);
 
-//        }
+        }
 
-//        [Fact]
-//        public void OddRager_InputMinandMaxRange_ReturnValidOddNumberRage() {
-//            Calculator calc = new();
-//            List<int> expectedOddRage = new List<int>() { 5, 7, 9 };
-//            //act
-//            List<int> result = calc.GetOddRange(5, 10);
-
-
-//            Assert.Multiple(() =>
-//            {
-//                Assert.That(result, Is.EquivalentTo(expectedOddRage));
-//                Assert.Equals(expectedOddRage, result);
-//                Assert.That(result, Does.Contain(7));
-//                Assert.That(result, Is.Not.Empty);
-
-//                Assert.That(result.Count, Has.No.Member(6));
-//                Assert.That(result, Is.Ordered.Descending);
-//                Assert.That(result, Is.Unique);
-//            });
-//            //Assert
+        [Test]
+        public void OddRager_InputMinandMaxRange_ReturnValidOddNumberRage() {
+            Calculator calc = new();
+            List<int> expectedOddRage = new List<int>() { 5, 7, 9 };
+            //act
+            List<int> result = calc.GetOddRange(5, 10);
 
 
-//        }
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EquivalentTo(expectedOddRage));
+                Assert.Equals(expectedOddRage, result);
+                Assert.That(result, Does.Contain(7));
+                Assert.That(result, Is.Not.Empty);
 
-//        [Fact]
-//        public void OddRager_InputMinandMaxRange_ReturnDiscountInRage()
-//        {
-//            int result = customer.Discount;
-//            Assert.That(result, Is.InRange(10, 25));
+                Assert.That(result.Count, Has.No.Member(6));
+                Assert.That(result, Is.Ordered.Descending);
+                Assert.That(result, Is.Unique);
+            });
+            //Assert
 
-//        }
 
-//        [Fact]
-//        public void GreetMessag_GreetWithoutLastName_ReturnsNotNull() {
-//            customer.GreetAndCombinaName("ben", "");
+        }
+
+        [Test]
+        public void OddRager_InputMinandMaxRange_ReturnDiscountInRage()
+        {
+            int result = customer.Discount;
+            Assert.That(result, Is.InRange(10, 25));
+
+        }
+
+        [Test]
+        public void GreetMessag_GreetWithoutLastName_ReturnsNotNull() {
+            customer.GreetAndCombinaName("ben", "");
             
-//            A2.Assert.IsNotNull(customer.GreetMessage);
-//            A2.Assert.IsFalse(string.IsNullOrEmpty(customer.GreetMessage));
-//        }
-//        [Fact]
-//        public void GreetMessag_GreetWithoutLastName_ThrowsException()
-//        {
-//            var exceptionDetails = Assert.Throws<ArgumentException>(() => customer.GreetAndCombinaName(string.Empty, "Spark"));
-//            Assert.Equals("Empty First Name",exceptionDetails.Message);
-//            Assert.That(() => customer.GreetAndCombinaName("", "spark"), Throws.ArgumentException.With.Message.EqualTo("Empty First Name"));
+            A2.Assert.IsNotNull(customer.GreetMessage);
+            A2.Assert.IsFalse(string.IsNullOrEmpty(customer.GreetMessage));
+        }
+        [Test]
+        public void GreetMessag_GreetWithoutLastName_ThrowsException()
+        {
+            var exceptionDetails = Assert.Throws<ArgumentException>(() => customer.GreetAndCombinaName(string.Empty, "Spark"));
+            Assert.Equals("Empty First Name",exceptionDetails.Message);
+            Assert.That(() => customer.GreetAndCombinaName("", "spark"), Throws.ArgumentException.With.Message.EqualTo("Empty First Name"));
 
 
-//            Assert.Throws<ArgumentException>(() => customer.GreetAndCombinaName(string.Empty, "Spark"));
-//            Assert.That(() => customer.GreetAndCombinaName("", "spark"), Throws.ArgumentException.With.Message.EqualTo("Empty First Name"));
+            Assert.Throws<ArgumentException>(() => customer.GreetAndCombinaName(string.Empty, "Spark"));
+            Assert.That(() => customer.GreetAndCombinaName("", "spark"), Throws.ArgumentException.With.Message.EqualTo("Empty First Name"));
 
 
-//        }
+        }
 
-//        [Fact]
-//        public void CustomerType_CreateCustomerWithLessThan100Order_ReturnBasicCustomer() {
-//            customer.OrderTotal = 10;
-//            var result = customer.GetCustomerDetails();
-//            Assert.That(result, Is.TypeOf<BasicCustomer>());
-//        }
-//        [Fact]
-//        public void CustomerType_CreateCustomerWithMoreThan100Order_ReturnBasicCustomer()
-//        {
-//            customer.OrderTotal = 110;
-//            var result = customer.GetCustomerDetails();
-//            Assert.That(result, Is.TypeOf<PlaninumCustomer>());
-//        }
+        [Test]
+        public void CustomerType_CreateCustomerWithLessThan100Order_ReturnBasicCustomer() {
+            customer.OrderTotal = 10;
+            var result = customer.GetCustomerDetails();
+            Assert.That(result, Is.TypeOf<BasicCustomer>());
+        }
+        [Test]
+        public void CustomerType_CreateCustomerWithMoreThan100Order_ReturnBasicCustomer()
+        {
+            customer.OrderTotal = 110;
+            var result = customer.GetCustomerDetails();
+            Assert.That(result, Is.TypeOf<PlaninumCustomer>());
+        }
 
 
-//      }
-//    }
+      }
+    }
